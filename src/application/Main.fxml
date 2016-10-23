@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <center>
-      <TabPane prefHeight="639.0" prefWidth="592.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tabPane" prefHeight="639.0" prefWidth="592.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Hexadecimal">
+          <Tab fx:id="tabHex" text="Hexadecimal">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="592.0">
+              <AnchorPane fx:id="ancHex" minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="592.0">
                      <children>
                         <GridPane prefHeight="432.0" prefWidth="600.0">
                           <columnConstraints>
@@ -38,7 +38,7 @@
                                     <VBox spacing="4.0">
                                        <children>
                                           <Label text="Hex Conversion:" />
-                                          <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
+                                          <TextField fx:id="txHexInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -46,9 +46,9 @@
                                     </VBox>
                                     <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" spacing="4.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Decimal" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Binary" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Ascii" />
+                                          <Button fx:id="btHexToDec" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Decimal" />
+                                          <Button fx:id="btHexToBin" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Binary" />
+                                          <Button fx:id="btHexToAscii" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Ascii" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -60,9 +60,9 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                                        <children>
                                           <Label text="Result:" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txHexToDec" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txHexToBin" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txHexToAscii" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -81,20 +81,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="AND" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexAnd" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="AND" />
+                                          <TextField fx:id="txHexAndInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexAndInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexAndOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -102,20 +102,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="OR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexOr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="OR" />
+                                          <TextField fx:id="txHexOrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexOrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexOrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -123,20 +123,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="XOR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexXor" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="XOR" />
+                                          <TextField fx:id="txHexXorInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexXorInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexXorOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -144,20 +144,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHL" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexShl" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHL" />
+                                          <TextField fx:id="txHexShlInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexShlInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexShlOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -165,20 +165,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexShr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHR" />
+                                          <TextField fx:id="txHexShrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexShrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexShrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -186,8 +186,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="NOT" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btHexNot" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="NOT" />
+                                          <TextField fx:id="txHexNotInput" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
@@ -196,7 +196,7 @@
                                                 <Insets left="-3.0" right="-3.0" />
                                              </padding>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txHexNotOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -214,9 +214,9 @@
                                           <Label text="Ascii to Hex" />
                                           <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" spacing="8.0">
                                              <children>
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
-                                                <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Hex" />
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <TextField fx:id="txAsciiToHex" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <Button fx:id="btAsciiToHex" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Hex" />
+                                                <TextField fx:id="txAsciiToHexOutput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -227,7 +227,7 @@
                                     <Region prefHeight="61.0" prefWidth="135.0" />
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Clear All">
+                                          <Button fx:id="btHexClear" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Clear All">
                                              <VBox.margin>
                                                 <Insets top="25.0" />
                                              </VBox.margin></Button>
@@ -247,9 +247,9 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Decimal">
+          <Tab fx:id="tabDecimal" text="Decimal">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane fx:id="ancDec" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <GridPane prefHeight="432.0" prefWidth="600.0">
                            <columnConstraints>
@@ -266,7 +266,7 @@
                                     <VBox spacing="4.0">
                                        <children>
                                           <Label text="Decimal Conversion:" />
-                                          <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
+                                          <TextField fx:id="txDecInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -274,9 +274,9 @@
                                     </VBox>
                                     <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" spacing="4.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Hex" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Binary" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Ascii" />
+                                          <Button fx:id="btDecToHex" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Hex" />
+                                          <Button fx:id="btDecToBin" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Binary" />
+                                          <Button fx:id="btDecToAscii" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Ascii" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -288,9 +288,9 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                                        <children>
                                           <Label text="Result:" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txDecToHex" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txDecToBin" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txDecToAscii" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -309,20 +309,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="AND" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecAnd" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="AND" />
+                                          <TextField fx:id="txDecAndInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecAndInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecAndOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -330,20 +330,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="OR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecOr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="OR" />
+                                          <TextField fx:id="txDecOrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecOrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecOrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -351,20 +351,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="XOR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecXor" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="XOR" />
+                                          <TextField fx:id="txDecXorInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecXorInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecXorOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -372,20 +372,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHL" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecShl" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHL" />
+                                          <TextField fx:id="txDecShlInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecShlInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecShlOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -393,20 +393,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecShr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHR" />
+                                          <TextField fx:id="txDecShrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecShrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecShrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -414,8 +414,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="NOT" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btDecNot" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="NOT" />
+                                          <TextField fx:id="txDecNotInput" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
@@ -424,7 +424,7 @@
                                                 <Insets left="-3.0" right="-3.0" />
                                              </padding>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txDecNotOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -442,9 +442,9 @@
                                           <Label text="Ascii to Dec" />
                                           <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" spacing="8.0">
                                              <children>
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
-                                                <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Decimal" />
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <TextField fx:id="txAsciiToDecInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <Button fx:id="btAsciiToDec" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Decimal" />
+                                                <TextField fx:id="txAsciiToDecOutput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -455,7 +455,7 @@
                                     <Region prefHeight="61.0" prefWidth="135.0" />
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Clear All">
+                                          <Button fx:id="btDecClear" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Clear All">
                                              <VBox.margin>
                                                 <Insets top="25.0" />
                                              </VBox.margin>
@@ -475,9 +475,9 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Binary">
+            <Tab fx:id="tabBinary" text="Binary">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="ancBin" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <GridPane prefHeight="432.0" prefWidth="600.0">
                            <columnConstraints>
@@ -494,7 +494,7 @@
                                     <VBox spacing="4.0">
                                        <children>
                                           <Label text="Binary Conversion:" />
-                                          <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
+                                          <TextField fx:id="txBinInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -502,9 +502,9 @@
                                     </VBox>
                                     <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" spacing="4.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Hex" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Decimal" />
-                                          <Button mnemonicParsing="false" prefWidth="75.0" text="Ascii" />
+                                          <Button fx:id="btBinToHex" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Hex" />
+                                          <Button fx:id="btBinToDec" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Decimal" />
+                                          <Button fx:id="btBinToAscii" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Ascii" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -516,9 +516,9 @@
                                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="4.0">
                                        <children>
                                           <Label text="Result:" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
-                                          <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txBinToHex" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txBinToDec" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
+                                          <TextField fx:id="txBinToAscii" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="160.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -537,20 +537,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="AND" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinAnd" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="AND" />
+                                          <TextField fx:id="txBinAndInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinAndInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinAndOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -558,20 +558,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="OR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinOr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="OR" />
+                                          <TextField fx:id="txBinOrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinOrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinOrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -579,20 +579,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="XOR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinXor" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="XOR" />
+                                          <TextField fx:id="txBinXorInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinXorInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinXorOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -600,20 +600,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHL" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinShl" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHL" />
+                                          <TextField fx:id="txBinShlInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinShlInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinShlOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -621,20 +621,20 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="SHR" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinShr" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="SHR" />
+                                          <TextField fx:id="txBinShrInput1" prefWidth="150.0" />
                                           <Label text=",">
                                              <HBox.margin>
                                                 <Insets top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinShrInput2" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinShrOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -642,8 +642,8 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="48.0" text="NOT" />
-                                          <TextField prefWidth="150.0" />
+                                          <Button fx:id="btBinNot" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="48.0" text="NOT" />
+                                          <TextField fx:id="txBinNotInput" prefWidth="150.0" />
                                           <Label text="=">
                                              <HBox.margin>
                                                 <Insets top="5.0" />
@@ -652,7 +652,7 @@
                                                 <Insets left="-3.0" right="-3.0" />
                                              </padding>
                                           </Label>
-                                          <TextField prefWidth="150.0" />
+                                          <TextField fx:id="txBinNotOutput" prefWidth="150.0" />
                                        </children>
                                        <padding>
                                           <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -670,9 +670,9 @@
                                           <Label text="Ascii to Bin" />
                                           <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" spacing="8.0">
                                              <children>
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
-                                                <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Binary" />
-                                                <TextField maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <TextField fx:id="txAsciiToBinInput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                                <Button fx:id="btAsciiToBin" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Binary" />
+                                                <TextField fx:id="txAsciiToBinOutput" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -683,7 +683,7 @@
                                     <Region prefHeight="61.0" prefWidth="135.0" />
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="75.0" text="Clear All">
+                                          <Button fx:id="btBinClear" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buttonAction" prefWidth="75.0" text="Clear All">
                                              <VBox.margin>
                                                 <Insets top="25.0" />
                                              </VBox.margin>
@@ -703,7 +703,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="About">
+            <Tab fx:id="tabAbout" text="About">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
@@ -711,7 +711,4 @@
         </tabs>
       </TabPane>
    </center>
-   <padding>
-      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-   </padding>
 </BorderPane>
